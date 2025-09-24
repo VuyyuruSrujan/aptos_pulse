@@ -1,0 +1,215 @@
+.bill-card {
+  padding: 24px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.bill-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #4A90E2, #00FFC2);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.bill-card:hover::before {
+  opacity: 1;
+}
+
+.bill-card.overdue {
+  border-color: rgba(255, 71, 87, 0.3);
+  background: rgba(255, 71, 87, 0.05);
+}
+
+.bill-card.overdue::before {
+  background: linear-gradient(90deg, #ff4757, #ff3742);
+  opacity: 1;
+}
+
+.bill-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.bill-service h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 4px;
+}
+
+.bill-category {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
+}
+
+.bill-details {
+  margin-bottom: 24px;
+}
+
+.bill-amount {
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 12px;
+}
+
+.currency {
+  font-size: 18px;
+  color: #4A90E2;
+  margin-right: 4px;
+}
+
+.amount {
+  font-size: 28px;
+  font-weight: 700;
+  color: #00FFC2;
+  text-shadow: 0 0 10px rgba(0, 255, 194, 0.3);
+}
+
+.bill-due {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.due-label {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.due-date {
+  font-size: 14px;
+  font-weight: 600;
+  color: #4A90E2;
+}
+
+.overdue-date {
+  color: #ff4757 !important;
+  text-shadow: 0 0 8px rgba(255, 71, 87, 0.5);
+}
+
+.bill-description {
+  margin-bottom: 12px;
+}
+
+.bill-description p {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
+  font-style: italic;
+}
+
+.bill-payee {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.payee-label {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.payee-address {
+  font-size: 14px;
+  font-weight: 600;
+  color: #00FFC2;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.payee-address:hover {
+  color: #4A90E2;
+  text-shadow: 0 0 8px rgba(74, 144, 226, 0.5);
+}
+
+.last-paid {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.4);
+  text-align: right;
+}
+
+.bill-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.bill-actions .btn-primary,
+.bill-actions .btn-secondary {
+  flex: 1;
+  min-width: 120px;
+  text-align: center;
+  padding: 12px 16px;
+  font-size: 14px;
+}
+
+.autopay-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  background: rgba(166, 113, 233, 0.1);
+  border: 1px solid #A671E9;
+  border-radius: 12px;
+  width: 100%;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.overdue-indicator {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(255, 71, 87, 0.2);
+  color: #ff4757;
+  padding: 4px 8px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  border: 1px solid #ff4757;
+}
+
+@media (max-width: 768px) {
+  .bill-card {
+    padding: 20px;
+  }
+  
+  .bill-header {
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  
+  .bill-actions {
+    flex-direction: column;
+  }
+  
+  .bill-actions .btn-primary,
+  .bill-actions .btn-secondary {
+    min-width: auto;
+  }
+  
+  .amount {
+    font-size: 24px;
+  }
+}

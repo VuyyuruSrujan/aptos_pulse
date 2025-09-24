@@ -1,0 +1,72 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 16px 0;
+  margin-bottom: 0;
+}
+
+.navbar-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar-logo {
+  font-size: 28px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+}
+
+.navbar-link {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+  padding: 8px 16px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.navbar-link:hover {
+  color: #4A90E2;
+  background: rgba(74, 144, 226, 0.1);
+}
+
+.navbar-link.active {
+  color: #00FFC2;
+  background: rgba(0, 255, 194, 0.1);
+}
+
+.wallet-connect-btn {
+  padding: 10px 20px;
+  font-size: 14px;
+}
+
+@media (max-width: 768px) {
+  .navbar-links {
+    gap: 16px;
+  }
+  
+  .navbar-link {
+    font-size: 14px;
+    padding: 6px 12px;
+  }
+  
+  .navbar-logo {
+    font-size: 24px;
+  }
+  
+  .wallet-connect-btn {
+    padding: 8px 16px;
+    font-size: 12px;
+  }
+}
