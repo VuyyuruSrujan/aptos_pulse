@@ -476,6 +476,7 @@ const DashboardPage: React.FC = () => {
   };
 
   const handleSaveAutopay = async (config: AutoPayConfig) => {
+
     setBills(prev => prev.map(bill => 
       bill.id === config.billId 
         ? { ...bill, status: 'AutoPay Enabled' as const }
@@ -487,6 +488,23 @@ const DashboardPage: React.FC = () => {
     existingConfigs[config.billId] = config;
     localStorage.setItem('autopayConfigs', JSON.stringify(existingConfigs));
     console.log('💾 Stored AutoPay config:', config);
+
+    // Store user address and bill id in localStorage
+    try {
+      let userAddress = null;
+      if ((window as any).aptos) {
+        const accountResponse = await (window as any).aptos.account();
+        userAddress = accountResponse.address;
+      }
+      if (userAddress) {
+        const autopayUsers = JSON.parse(localStorage.getItem('autopayUsers') || '[]');
+        autopayUsers.push({ address: userAddress, billId: config.billId });
+        localStorage.setItem('autopayUsers', JSON.stringify(autopayUsers));
+        console.log('💾 Stored user address and billId:', { address: userAddress, billId: config.billId });
+      }
+    } catch (err) {
+      console.error('Failed to store user address and billId:', err);
+    }
 
     // Call update_bill_status entry function in Move contract
     try {
@@ -507,6 +525,35 @@ const DashboardPage: React.FC = () => {
     } catch (error: any) {
       console.error('Error updating AutoPay status in contract:', error);
       alert(`Error updating AutoPay status: ${error?.message || error}`);
+    }
+
+    // Send autopay bill details to backend MongoDB
+    try {
+      let userAddress = null;
+      if ((window as any).aptos) {
+        const accountResponse = await (window as any).aptos.account();
+        userAddress = accountResponse.address;
+      }
+      if (userAddress) {
+        await fetch('http://localhost:3001/api/autopay', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            userAddress,
+            billDetails: {
+              ...config,
+              service: selectedBill?.service,
+              amount: selectedBill?.amount,
+              category: selectedBill?.category,
+              payee: selectedBill?.payee,
+              dueDate: selectedBill?.dueDate,
+            }
+          })
+        });
+        console.log('✅ Autopay bill stored in MongoDB');
+      }
+    } catch (err) {
+      console.error('Failed to store autopay bill in MongoDB:', err);
     }
 
     // Add autopay notification
