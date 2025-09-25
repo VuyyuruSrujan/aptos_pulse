@@ -1,40 +1,36 @@
-## Create Aptos Dapp Boilerplate Template
+⚡ Pulse – Unified Bill Payment & AutoPay on Aptos
+📌 Project Description
 
-The Boilerplate template provides a starter dapp with all necessary dapp infrastructure and a simple wallet info implementation, transfer APT and a simple message board functionality to send and read a message on chain.
+Pulse is a decentralized bill management and payment system built on the Aptos blockchain. It allows users to consolidate all their monthly bills (utilities, subscriptions, EMIs, memberships, etc.) into one place and pay them securely using either one-click bulk payments or automated scheduling. By removing intermediaries and leveraging smart contracts, Pulse ensures faster, cheaper, and trustless recurring payments with full transparency.
 
-## Read the Boilerplate template docs
+🎯 Project Vision
 
-To get started with the Boilerplate template and learn more about the template functionality and usage, head over to the [Boilerplate template docs](https://learn.aptoslabs.com/en/dapp-templates/boilerplate-template)
+Our vision is to simplify recurring payments by creating a single trustless platform that automates bill settlement for individuals and businesses. Instead of managing multiple platforms or missing due dates, users can set up autopay rules, receive alerts, and ensure seamless bill payments directly from their Aptos wallets. Pulse aims to become the go-to DeFi autopay system, offering both convenience and reliability for everyday financial life.
 
-## The Boilerplate template provides:
+⚡ Core Features
 
-- **Folder structure** - A pre-made dapp folder structure with a `frontend` and `contract` folders.
-- **Dapp infrastructure** - All required dependencies a dapp needs to start building on the Aptos network.
-- **Wallet Info implementation** - Pre-made `WalletInfo` components to demonstrate how one can use to read a connected Wallet info.
-- **Transfer APT implementation** - Pre-made `transfer` components to send APT to an address.
-- **Message board functionality implementation** - Pre-made `message` components to send and read a message on chain
+📑 Bill Aggregation – Register and view all bills and subscriptions in one dashboard.
 
-## What tools the template uses?
+💳 One-Click Pay – Instantly pay all pending bills in a single blockchain transaction, saving time and gas.
 
-- React framework
-- Vite development tool
-- shadcn/ui + tailwind for styling
-- Aptos TS SDK
-- Aptos Wallet Adapter
-- Node based Move commands
-- [Vite-pwa](https://vite-pwa-org.netlify.app/)
+⏱ AutoPay Scheduling – Set recurring payment rules (dates, amounts, frequency, and limits).
 
-## What Move commands are available?
+🔔 Notifications & Alerts – Get notified about upcoming bills, insufficient funds, or failed payments.
 
-The tool utilizes [aptos-cli npm package](https://github.com/aptos-labs/aptos-cli) that lets us run Aptos CLI in a Node environment.
+🛡 Fail-Safe Mechanism – Prevents overcharging or suspicious billing by flagging unusual payment requests.
 
-Some commands are built-in the template and can be ran as a npm script, for example:
+📊 Transparent History – Every payment and schedule is logged on-chain for full visibility.
 
-- `npm run move:publish` - a command to publish the Move contract
-- `npm run move:test` - a command to run Move unit tests
-- `npm run move:compile` - a command to compile the Move contract
-- `npm run move:upgrade` - a command to upgrade the Move contract
-- `npm run dev` - a command to run the frontend locally
-- `npm run deploy` - a command to deploy the dapp to Vercel
+🔮 Future Scope
 
-For all other available CLI commands, can run `npx aptos` and see a list of all available commands.
+🔗 Move Smart Contract Integration – Full backend execution using Aptos Move.
+
+📱 Mobile App & Wallet Integration – Manage bills directly from mobile crypto wallets.
+
+🤝 Business Adoption – Onboard utility providers, subscription services, and fintech partners.
+
+🌍 Multi-Currency Support – Pay bills using stablecoins, APT, or other supported tokens.
+
+📈 Smart Insights – AI-powered expense analytics and budgeting based on user payment history.
+
+🔐 zkProof Privacy – Add privacy-preserving bill payment options for sensitive services.
